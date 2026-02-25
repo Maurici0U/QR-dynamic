@@ -32,13 +32,12 @@ export default function LoginPage() {
 
             if (res?.error) {
                 setError("Credenciales inválidas")
+                setLoading(false)
             } else {
-                router.push("/dashboard")
-                router.refresh()
+                window.location.href = "/dashboard"
             }
         } catch (err) {
             setError("Ocurrió un error al iniciar sesión")
-        } finally {
             setLoading(false)
         }
     }
